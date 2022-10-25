@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Hero from '../../images/hero.jpg'
+import AskedQuestions from '../AskedQuestions/AskedQuestions';
 import BlogMain from '../Blogs/BlogMain/BlogMain';
+import LetsTalk from '../LetsTalk/LetsTalk';
 import PopularCourseDisplay from '../PopularCourseDisplay/PopularCourseDisplay';
 
 
@@ -133,6 +135,12 @@ const Home = () => {
                 <div>
                     <BlogMain></BlogMain>
                 </div>
+            </div>
+            <div>
+            <AskedQuestions></AskedQuestions>
+            </div>
+            <div>
+                <LetsTalk></LetsTalk>
             </div>
         </div>
 

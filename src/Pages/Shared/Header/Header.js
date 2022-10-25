@@ -41,7 +41,7 @@ const Header = () => {
                                     title="Our product"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    Product
+                                    Courses
                                 </Link>
                             </li>
                             <li>
@@ -51,7 +51,7 @@ const Header = () => {
                                     title="Our product"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    Features
+                                    Blogs
                                 </Link>
                             </li>
                             <li>
@@ -61,7 +61,7 @@ const Header = () => {
                                     title="Product pricing"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    Pricing
+                                    FAQ
                                 </Link>
                             </li>
                             <li>
@@ -98,7 +98,7 @@ const Header = () => {
                             </Link>
                         </li>
                     </ul>
-                    <div class="lg:hidden">
+                    <div class="lg:hidden z-10">
                         <button
                             aria-label="Open Menu"
                             title="Open Menu"

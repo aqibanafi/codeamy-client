@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import AboutUs from "../../Pages/AboutUS/AboutUs";
+import AskedQuestions from "../../Pages/AskedQuestions/AskedQuestions";
 import Blog01 from "../../Pages/Blogs/Blog01/Blog01";
 import Blog02 from "../../Pages/Blogs/Blog02/Blog02";
 import Blog03 from "../../Pages/Blogs/Blog03/Blog03";
@@ -8,11 +9,11 @@ import Blog04 from "../../Pages/Blogs/Blog04/Blog04";
 import BlogMain from "../../Pages/Blogs/BlogMain/BlogMain";
 import Category from "../../Pages/Category/Category";
 import Courses from "../../Pages/Courses/Courses";
-import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Registration from "../../Pages/Login/Registration/Registration";
 import PremiumAccessForm from "../../Pages/PremiumAccessForm/PremiumAccessForm";
+
 
 export const routes = createBrowserRouter([
     {
@@ -37,8 +38,8 @@ export const routes = createBrowserRouter([
                 element: <AboutUs></AboutUs>
             },
             {
-                path: '/faq',
-                element: <FAQ></FAQ>
+                path: '/frequently-asked-questions',
+                element: <AskedQuestions></AskedQuestions>
             },
             {
                 path:'/courses-categories/:id',

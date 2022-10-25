@@ -63,14 +63,14 @@ const Courses = () => {
                 <div>
                     <h2 className='text-2xl font-bold mb-5'>Course Content</h2>
                     <div className='flex gap-5'>
-                        <p><span className='text-amber-500 text-lg mr-2'>{sections}</span> <span className='font-medium'>sections</span></p>
-                        <p><span className='text-amber-500 text-lg mr-2'>{lectures}</span> <span className='font-medium'>lectures</span></p>
-                        <p><span className='text-amber-500 text-lg mr-2'>{total_length}</span> <span className='font-medium'>total length</span></p>
+                        <p><span className='text-amber-500 text-lg mr-2 font-bold'>{sections}</span> <span className='font-medium'>sections</span></p>
+                        <p><span className='text-amber-500 text-lg mr-2 font-bold'>{lectures}</span> <span className='font-medium'>lectures</span></p>
+                        <p><span className='text-amber-500 text-lg mr-2 font-bold'>{total_length}</span> <span className='font-medium'>total length</span></p>
                     </div>
                     <div className='mt-8'>
                         {
                             content.map(contentList =>
-                                <ul className='flex items-center gap-10 border p-3 mb-2 bg-slate-200 hover:bg-slate-400 hover:text-white'>
+                                <ul className='flex items-center gap-10 border p-3 mb-2 bg-slate-200 hover:bg-amber-600 hover:text-white'>
                                     <FaCheckSquare></FaCheckSquare>
                                     <li className='font-medium text-lg'>
                                         {contentList}
@@ -83,7 +83,7 @@ const Courses = () => {
             </div>
             <div className='flex justify-center mt-12 mb-20'>
                 <Link to={`/premium-access/${_id}`}>
-                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Get Premium Access</button>
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-amber-600 text-white hover:bg-amber-800">Get Premium Access</button>
                 </Link>
             </div>
         </div>
