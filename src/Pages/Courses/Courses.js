@@ -4,7 +4,7 @@ import { FaStar, FaVideo, FaBook, FaCertificate, FaCalendarTimes, FaLanguage, Fa
 
 const Courses = () => {
     const courseDetail = useLoaderData();
-    const { _id, title, detail, overview, language, rating, enrolled, author, sections, published_date, lectures, total_length, video_length, article_number, certificate, content } = courseDetail;
+    const { _id, image, title, detail, overview, language, rating, enrolled, author, sections, published_date, lectures, total_length, video_length, article_number, certificate, content } = courseDetail;
     return (
         <div>
             <div className='bg-gray-800 text-white p-5'>
@@ -31,6 +31,9 @@ const Courses = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='flex justify-center mt-10 mb-20'>
+                <img className='w-2/5' src={image} alt="" />
             </div>
             <div className='container mx-auto mt-10'>
                 <h2 className='text-2xl font-bold mb-5'>Course Overview</h2>
