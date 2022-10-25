@@ -5,10 +5,10 @@ const Blog02 = () => {
     return (
         <div>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
+                <p className="font-medium">
                 August 1, 2022
                 </p>
-                <div className="max-w-xl mb-5 md:mx-auto sm:text-center lg:max-w-2xl">
+                <div>
                     <div className="mb-4">
                         <p
                             aria-label="Article"
@@ -21,25 +21,26 @@ const Blog02 = () => {
                     Google Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps. Firebase provides tools for tracking analytics, reporting and fixing app crashes, creating marketing and product experiment.
                     <br /> <br />
                     Firebase offers a number of services, including: <br />
-                    <span className='flex'>
-                    <FaCheckSquare className='text-4xl items-center'></FaCheckSquare>
+                    <span className='flex items-center'>
+                    <FaCheckSquare className='text-lg items-center mr-3'></FaCheckSquare>
                     Analytics – Google Analytics for Firebase offers free, unlimited reporting on as many as 500 separate events. Analytics presents data about user behavior in iOS and Android apps, enabling better decision-making about improving performance and app marketing.
                     </span>
-                    <span className='flex'>
-                    <FaCheckSquare className='text-5xl items-center'></FaCheckSquare>
+                    <span className='flex items-center'>
+                    <FaCheckSquare className='text-lg items-center mr-3'></FaCheckSquare>
                     Authentication – Firebase Authentication makes it easy for developers to build secure authentication systems and enhances the sign-in and onboarding experience for users. This feature offers a complete identity solution, supporting email and password accounts, phone auth, as well as Google, Facebook, GitHub, Twitter login and more.
                     </span>
-                    <span className='flex'>
-                    <FaCheckSquare className='text-2xl items-center'></FaCheckSquare>
+                    <span className='flex items-center'>
+                    <FaCheckSquare className='text-sm items-center mr-3'></FaCheckSquare>
                     Cloud messaging – Firebase Cloud Messaging (FCM) is a cross-platform messaging tool that lets companies reliably receive and deliver messages on iOS, Android and the web at no cost.
                     </span>
-                    <span className='flex'>
-                    <FaCheckSquare className='text-4xl items-center'></FaCheckSquare>
+                    <span className='flex items-center'>
+                    <FaCheckSquare className='text-lg items-center mr-3'></FaCheckSquare>
                     Realtime database – the Firebase Realtime Database is a cloud-hosted NoSQL database that enables data to be stored and synced between users in real time. The data is synced across all clients in real time and is still available when an app goes offline.
                     </span>
-                    <span className='text-2xl font-bold'>Firebase Alternatives:</span>
+                    <img className='mt-12 mb-12' src="https://i.ibb.co/3sTXscT/1-Jb-Do7-U0l62v-YMfm1-Wxn-A1g.png" alt="" />
+                    <span className='text-2xl font-bold mt-5'>Firebase Alternatives:</span>
                     <span>
-                        <ul className='mt-10'>
+                        <ul className='mt-5'>
                             <li className='flex items-center gap-5'><FaCheckSquare></FaCheckSquare>Kuzzle</li>
                             <li className='flex items-center gap-5'><FaCheckSquare></FaCheckSquare>Pubnub</li>
                             <li className='flex items-center gap-5'><FaCheckSquare></FaCheckSquare>Kumulos</li>
@@ -50,25 +51,6 @@ const Blog02 = () => {
                         </ul>
                     </span>
                     </p>
-                </div>
-                <div className="mb-10 sm:text-center">
-                    <a href="/" aria-label="Author" className="inline-block mb-1">
-                        <img
-                            alt="avatar"
-                            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                            className="object-cover w-10 h-10 rounded-full shadow-sm"
-                        />
-                    </a>
-                    <div>
-                        <a
-                            href="/"
-                            aria-label="Author"
-                            className="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
-                        >
-                            Vasile Melinte
-                        </a>
-                        <p className="text-sm font-medium leading-4 text-gray-600">Author</p>
-                    </div>
                 </div>
             </div>
         </div>
