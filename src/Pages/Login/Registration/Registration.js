@@ -1,15 +1,57 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Registration = () => {
-    const getinfo = event => {
+    const [error, setError] = useState('');
+    const [accepted, setAccepted] = useState(false);
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+
+    const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+                handleUpdateUserProfile(name, photoURL);
+                handleEmailVerification();
+                toast.success('Please verify your email address.')
+            })
+            .catch(e => {
+                console.error(e);
+                setError(e.message);
+            });
     }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+    const handleEmailVerification = () => {
+        verifyEmail()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
+    }
+
     return (
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center'>
@@ -31,7 +73,7 @@ const Registration = () => {
                                 </Link>
                             </p>
                         </div>
-                        <form onSubmit={getinfo} className="mt-8 space-y-6" action="#" method="POST">
+                        <form onSubmit={handleSubmit} className="mt-8 space-y-6" action="#" method="POST">
                             <input type="hidden" name="remember" defaultValue="true" />
                             <div className="-space-y-px rounded-md shadow-sm">
                                 <div>
@@ -52,7 +94,6 @@ const Registration = () => {
                                         Email address
                                     </label>
                                     <input
-                                        id="email-address"
                                         name="email"
                                         type="email"
                                         autoComplete="email"
@@ -62,23 +103,34 @@ const Registration = () => {
                                     />
                                 </div>
                                 <div>
+                                    <label htmlFor="email-address" className="sr-only">
+                                        Photo URL
+                                    </label>
+                                    <input
+                                        name="photoURL"
+                                        type="text"
+                                        autoComplete="photo"
+                                        className="mb-5 relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                        placeholder="Photo URL"
+                                    />
+                                </div>
+                                <div>
                                     <label htmlFor="password" className="sr-only">
                                         Password
                                     </label>
                                     <input
-                                        id="password"
                                         name="password"
                                         type="password"
                                         autoComplete="current-password"
                                         required
                                         className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                        placeholder="Password"
+                                        placeholder="*******"
                                     />
                                 </div>
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <div className="flex items-center">
+                                <div onClick={handleAccepted} className="flex items-center">
                                     <input
                                         id="remember-me"
                                         name="remember-me"
@@ -96,9 +148,12 @@ const Registration = () => {
                                     </div>
                                 </div>
                             </div>
-
+                            <div>
+                                <p className='text-red-600'>{error}</p>
+                            </div>
                             <div>
                                 <button
+                                    disabled={!accepted}
                                     type="submit"
                                     className="group relative flex w-full justify-center rounded-md border border-transparent bg-amber-600 py-2 text-white font-bold hover:bg-amber-800"
                                 >
