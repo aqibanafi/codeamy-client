@@ -116,7 +116,7 @@ const Home = () => {
             </div>
             <div className='flex flex-wrap justify-center mt-12 mb-12'>
                 {
-                    coursesCategory.map(category => <Link to={`/courses-categories/${category.id}`} className='px-12 py-6 mr-10 bg-sky-400 text-white text-center'>{category.name}</Link>)
+                    coursesCategory.map(category => <Link to={`/courses-categories/${category.id}`} className='px-12 py-6 mr-10 bg-amber-600 text-white font-bold text-center'>{category.name}</Link>)
                 }
             </div>
         </div>
