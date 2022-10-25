@@ -5,16 +5,15 @@ const PremiumAccessForm = () => {
     const courseData = useLoaderData();
     const { title, detail } = courseData;
     return (
-        <div className=' dark:bg-gray-800'>
-            <h1 className='text-3xl font-bold text-white text-center mb-5 pt-10'>Purchase Course: <span className='text-amber-500 text-4xl'>{title}</span></h1>
-            <p className='font-normal text-center text-white'>{detail}</p>
-            <div>
-                <section className="p-6 dark:bg-gray-800 dark:text-gray-50">
+        <div className=' bg-white container mx-auto'>
+            <h1 className='text-3xl font-bold text-white text-center mb-3 pt-10'>Purchase Course: <span className='text-amber-500 text-4xl'>{title}</span></h1>
+            <p className='font-medium text-center text-black'>{detail}</p>
+            <div className='mb-20'>
+                <section className="p-6 bg-white dark:text-gray-50">
                     <form novalidate="" action="" className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
-                        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+                        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-amber-800">
                             <div className="space-y-2 col-span-full lg:col-span-1">
                                 <p className="font-medium">Personal Inormation</p>
-                                <p className="text-xs">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci fuga autem eum!</p>
                             </div>
                             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                                 <div className="col-span-full sm:col-span-3">
@@ -47,10 +46,9 @@ const PremiumAccessForm = () => {
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
+                        <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-amber-800">
                             <div className="space-y-2 col-span-full lg:col-span-1">
                                 <p className="font-medium">Profile</p>
-                                <p className="text-xs">Adipisci fuga autem eum!</p>
                             </div>
                             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                                 <div className="col-span-full sm:col-span-3">
@@ -76,6 +74,9 @@ const PremiumAccessForm = () => {
                         </fieldset>
                     </form>
                 </section>
+                <div className='flex justify-center mt-10'>
+                    <button className="btn btn-wide bg-amber-700 text-white hover:bg-amber-900">Complete Order</button>
+                </div>
             </div>
         </div>
     );

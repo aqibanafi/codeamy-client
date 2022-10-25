@@ -1,14 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import AboutUs from "../../Pages/AboutUS/AboutUs";
-import Blog from "../../Pages/Blog/Blog";
+import Blog01 from "../../Pages/Blogs/Blog01/Blog01";
+import Blog02 from "../../Pages/Blogs/Blog02/Blog02";
+import Blog03 from "../../Pages/Blogs/Blog03/Blog03";
+import Blog04 from "../../Pages/Blogs/Blog04/Blog04";
+import BlogMain from "../../Pages/Blogs/BlogMain/BlogMain";
 import Category from "../../Pages/Category/Category";
 import Courses from "../../Pages/Courses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Registration from "../../Pages/Login/Registration/Registration";
-import PopularCourse from "../../Pages/PopularCourse/PopularCourse";
 import PremiumAccessForm from "../../Pages/PremiumAccessForm/PremiumAccessForm";
 
 export const routes = createBrowserRouter([
@@ -34,10 +37,6 @@ export const routes = createBrowserRouter([
                 element: <AboutUs></AboutUs>
             },
             {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
                 path: '/faq',
                 element: <FAQ></FAQ>
             },
@@ -57,9 +56,24 @@ export const routes = createBrowserRouter([
                 element: <PremiumAccessForm></PremiumAccessForm>
             },
             {
-                path: '/popular-course',
-                loader: () => fetch('http://localhost:5000/latest-course/'),
-                element: <PopularCourse></PopularCourse>
+                path: '/blogs',
+                element: <BlogMain></BlogMain>
+            },
+            {
+                path: '/blog01',
+                element: <Blog01></Blog01>
+            },
+            {
+                path: '/blog02',
+                element: <Blog02></Blog02>
+            },
+            {
+                path: '/blog03',
+                element: <Blog03></Blog03>
+            },
+            {
+                path:'/blog04',
+                element: <Blog04></Blog04>
             }
         ]
     }

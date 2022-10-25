@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
-const CategoryCourses = ({ course }) => {
+const PopularCourseDisplay = ({ course }) => {
     const { _id, title, image, detail, rating, price, enrolled } = course;
     return (
         <div>
@@ -18,9 +18,9 @@ const CategoryCourses = ({ course }) => {
                         <p>{detail}</p>
                     </div>
                     <div className='flex gap-10'>
-                        <div className='flex items-center gap-2'>
+                        <div className='flex items-center gap-1'>
                             <p>{rating}</p>
-                            <div className='flex gap-1'>
+                            <div className='flex gap-2'>
                                 <FaStar className='text-amber-300'></FaStar>
                                 <FaStar className='text-amber-300'></FaStar>
                                 <FaStar className='text-amber-300'></FaStar>
@@ -46,4 +46,4 @@ const CategoryCourses = ({ course }) => {
     );
 };
 
-export default CategoryCourses;
+export default PopularCourseDisplay;

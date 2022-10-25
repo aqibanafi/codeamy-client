@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Hero from '../../images/hero.jpg'
+import BlogMain from '../Blogs/BlogMain/BlogMain';
+import PopularCourseDisplay from '../PopularCourseDisplay/PopularCourseDisplay';
 
 
 const Home = () => {
     const coursesCategory = useLoaderData();
+    const [popularCourse, setPopularCourse] = useState([])
     return (
         <div className='relative'>
             <div>
@@ -24,7 +27,7 @@ const Home = () => {
                                         <span className="text-teal-accent-400">With Us</span>
                                     </h2>
                                     <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                                    Codeamy is an online learning and teaching marketplace with over 185000 courses. 40 million students. Learn programming. data science and more.
+                                        Codeamy is an online learning and teaching marketplace with over 185000 courses. 40 million students. Learn programming. data science and more.
                                     </p>
                                     <Link
                                         to='/login'
@@ -109,11 +112,27 @@ const Home = () => {
             </div>
             <div className='flex flex-wrap justify-center mt-12 mb-12'>
                 {
-                    coursesCategory.map(category =><Link to={`/courses-categories/${category.id}`} className='px-20 py-20 mr-10 bg-amber-600 text-white text-3xl font-bold text-center flex flex-col justify-around gap-5'> <img className='h-24 w-24' src={category.image} alt="" /> {category.name}</Link>)
+                    coursesCategory.map(category => <Link to={`/courses-categories/${category.id}`} className='px-20 py-20 mr-10 bg-amber-600 text-white text-3xl font-bold text-center flex flex-col justify-around gap-5'> <img className='h-24 w-24' src={category.image} alt="" /> {category.name}</Link>)
                 }
             </div>
-            <div>
-                
+            <div className='mt-20'>
+                <h1 className='text-4xl font-bold text-center text-amber-500 mb-20'>Popular Courses</h1>
+                {
+                    useEffect(() => {
+                        fetch('http://localhost:5000/latest-course')
+                            .then(res => res.json())
+                            .then(courses => setPopularCourse(courses))
+                    }, [])
+                }
+                {
+                    popularCourse.map(course => <PopularCourseDisplay course={course}></PopularCourseDisplay>)
+                }
+            </div>
+            <div className='mb-20'>
+                <h1 className='text-4xl font-bold text-center text-amber-500 mb-20'>Latest Blogs</h1>
+                <div>
+                    <BlogMain></BlogMain>
+                </div>
             </div>
         </div>
 
