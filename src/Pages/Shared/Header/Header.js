@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +11,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => { })
+            toast.error("You Signed Out!")
             .catch(error => console.error(error))
     }
 
@@ -45,7 +48,7 @@ const Header = () => {
                         <ul class="flex items-center hidden space-x-8 lg:flex">
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/courses'
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -55,7 +58,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/blogs'
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -65,7 +68,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/frequently-asked-questions'
                                     aria-label="Product pricing"
                                     title="Product pricing"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -75,7 +78,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link
-                                    to='/'
+                                    to='/aboutus'
                                     aria-label="About us"
                                     title="About us"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -85,28 +88,32 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                    <ul class="flex items-center hidden space-x-8 lg:flex">
-                        <li>
-                            <Link
-                                to='/'
-                                aria-label="Sign in"
-                                title="Sign in"
-                                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                            >
-                                Sign in
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to='/'
-                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Sign up
-                            </Link>
-                        </li>
-                    </ul>
+                    <>
+                        <div className='flex gap-10'>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <div className='flex items-center gap-5'>
+                                            <span className='text-white font-bold text-xl'>Hello, {user?.displayName}</span>
+                                            <Link to="/profile">
+                                                {user?.photoURL ?
+                                                    <img className='h-10 w-10 rounded-full' src={user?.photoURL}></img>
+                                                    :
+                                                    <FaUser></FaUser>
+                                                }
+                                            </Link>
+                                        </div>
+
+                                        <button onClick={handleLogOut} className="btn glass">Sign out</button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login'><button className="btn glass">Login</button></Link>
+                                        <Link to='/registration'><button className="btn glass">Sign up</button></Link>
+                                    </>
+                            }
+                        </div>
+                    </>
                     <div class="lg:hidden z-10">
                         <button
                             aria-label="Open Menu"

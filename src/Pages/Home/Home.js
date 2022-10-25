@@ -7,6 +7,7 @@ import BlogMain from '../Blogs/BlogMain/BlogMain';
 import LetsTalk from '../LetsTalk/LetsTalk';
 import PopularCourseDisplay from '../PopularCourseDisplay/PopularCourseDisplay';
 import toast from 'react-hot-toast';
+import AboutUs from '../AboutUS/AboutUs';
 
 
 const Home = () => {
@@ -209,7 +210,6 @@ const Home = () => {
                 }
             </div>
             <div className='mb-20'>
-                <h1 className='text-4xl font-bold text-center text-amber-500 mb-20'>Latest Blogs</h1>
                 <div>
                     <BlogMain></BlogMain>
                 </div>
@@ -219,6 +219,9 @@ const Home = () => {
             </div>
             <div>
                 <LetsTalk></LetsTalk>
+            </div>
+            <div>
+                <AboutUs></AboutUs>
             </div>
         </div>
 
