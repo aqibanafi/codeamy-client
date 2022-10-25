@@ -24,11 +24,11 @@ const Registration = () => {
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
                 handleEmailVerification();
-                toast.success('Please verify your email address.')
+                toast.success('Verification sent! Please verify your email address')
             })
-            .catch(e => {
-                console.error(e);
-                setError(e.message);
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
             });
     }
 
@@ -138,12 +138,12 @@ const Registration = () => {
                                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
                                     <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                        Accept Terms & Conditions
+                                        Accept <Link className='text-amber-500'>Terms & Conditions</Link>
                                     </label>
                                 </div>
 
                                 <div className="text-sm">
-                                    <div href="#" className="font-medium">
+                                    <div href="#" className="font-normal">
                                         Already Sign Up? Please <Link to='/login' className='text-amber-500'>Login</Link>
                                     </div>
                                 </div>

@@ -1,15 +1,65 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import Hero from '../../images/hero.jpg'
 import AskedQuestions from '../AskedQuestions/AskedQuestions';
 import BlogMain from '../Blogs/BlogMain/BlogMain';
 import LetsTalk from '../LetsTalk/LetsTalk';
 import PopularCourseDisplay from '../PopularCourseDisplay/PopularCourseDisplay';
+import toast from 'react-hot-toast';
 
 
 const Home = () => {
     const coursesCategory = useLoaderData();
     const [popularCourse, setPopularCourse] = useState([])
+    const [error, setError] = useState('');
+    const [accepted, setAccepted] = useState(false);
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+                handleUpdateUserProfile(name, photoURL);
+                handleEmailVerification();
+                toast.success('Please verify your email address.')
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            });
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+    const handleEmailVerification = () => {
+        verifyEmail()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
+    }
+
     return (
         <div className='relative'>
             <div>
@@ -44,7 +94,7 @@ const Home = () => {
                                         <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                                             Sign up for updates
                                         </h3>
-                                        <form>
+                                        <form onSubmit={handleSubmit}>
                                             <div className="mb-1 sm:mb-2">
                                                 <label
                                                     htmlFor="firstName"
@@ -57,8 +107,7 @@ const Home = () => {
                                                     required
                                                     type="text"
                                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                                    id="firstName"
-                                                    name="firstName"
+                                                    name="name"
                                                 />
                                             </div>
                                             <div className="mb-1 sm:mb-2">
@@ -71,10 +120,23 @@ const Home = () => {
                                                 <input
                                                     placeholder="john.doe@example.org"
                                                     required
+                                                    type="email"
+                                                    className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                                    name="email"
+                                                />
+                                            </div>
+                                            <div className="mb-1 sm:mb-2">
+                                                <label
+                                                    htmlFor="lastName"
+                                                    className="inline-block mb-1 font-medium"
+                                                >
+                                                    Photo URL
+                                                </label>
+                                                <input
+                                                    placeholder="john.doe@example.org"
                                                     type="text"
                                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                                    id="lastName"
-                                                    name="lastName"
+                                                    name="photoURL"
                                                 />
                                             </div>
                                             <div className="mb-1 sm:mb-2">
@@ -87,23 +149,39 @@ const Home = () => {
                                                 <input
                                                     placeholder="*******"
                                                     required
-                                                    type="text"
+                                                    type="password"
                                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                                    id="email"
-                                                    name="email"
+                                                    name="password"
                                                 />
+                                            </div>
+                                            <div onClick={handleAccepted} className="flex items-center">
+                                                <input
+                                                    id="remember-me"
+                                                    name="remember-me"
+                                                    type="checkbox"
+                                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                />
+                                                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                                                    Accept <Link className='text-amber-500'>Terms & Conditions</Link>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <p className='text-red-600 mt-2'>{error}</p>
+                                            </div>
+                                            <div className="text-sm">
+                                                <div href="#" className="font-normal">
+                                                    Already Sign Up? Please <Link to='/login' className='text-amber-500'>Login</Link>
+                                                </div>
                                             </div>
                                             <div className="mt-4 mb-2 sm:mb-4">
                                                 <button
+                                                    disabled={!accepted}
                                                     type="submit"
                                                     className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-amber-600 hover:bg-amber-800 focus:shadow-outline focus:outline-none"
                                                 >
                                                     Sign Up
                                                 </button>
                                             </div>
-                                            <p className="text-xs text-gray-600 sm:text-sm">
-                                                We respect your privacy. Unsubscribe at any time.
-                                            </p>
                                         </form>
                                     </div>
                                 </div>
@@ -137,7 +215,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
-            <AskedQuestions></AskedQuestions>
+                <AskedQuestions></AskedQuestions>
             </div>
             <div>
                 <LetsTalk></LetsTalk>
