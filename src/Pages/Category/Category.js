@@ -8,10 +8,13 @@ const Category = () => {
         <div>
             <div>
                 <h1>Total Course: {courses.length}</h1>
+                <h1>{courses.name}</h1>
             </div>
-            {
-                courses.map(course => <CategoryCourses key={course.id} course={course}></CategoryCourses>)
-            }
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
+                {
+                    courses.map(course => <CategoryCourses key={course.id} course={course}></CategoryCourses>)
+                }
+            </div>
         </div>
     );
 };

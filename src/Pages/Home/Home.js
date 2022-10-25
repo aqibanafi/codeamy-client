@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Hero from '../../images/hero.jpg'
+
 
 const Home = () => {
     const coursesCategory = useLoaderData();
@@ -8,7 +10,7 @@ const Home = () => {
             <div>
                 <div className="relative">
                     <img
-                        src="https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                        src={Hero}
                         className="absolute inset-0 object-cover w-full h-full"
                         alt=""
                     />
@@ -17,28 +19,19 @@ const Home = () => {
                             <div className="flex flex-col items-center justify-between xl:flex-row">
                                 <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                                     <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                        The quick, brown fox <br className="hidden md:block" />
-                                        jumps over a{' '}
-                                        <span className="text-teal-accent-400">lazy dog</span>
+                                        Take The First Step <br className="hidden md:block" />
+                                        To Khowledge{' '}
+                                        <span className="text-teal-accent-400">With Us</span>
                                     </h2>
                                     <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                        accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                                        quae.
+                                    Codeamy is an online learning and teaching marketplace with over 185000 courses. 40 million students. Learn programming. data science and more.
                                     </p>
                                     <Link
-                                        to=''
+                                        to='/login'
                                         aria-label=""
                                         className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
                                     >
-                                        Learn more
-                                        <svg
-                                            className="inline-block w-3 ml-2"
-                                            fill="currentColor"
-                                            viewBox="0 0 12 12"
-                                        >
-                                            <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
-                                        </svg>
+                                        <button className="btn btn-warning px-20 text-white hover:bg-amber-800">Login</button>
                                     </Link>
                                 </div>
                                 <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
@@ -52,10 +45,10 @@ const Home = () => {
                                                     htmlFor="firstName"
                                                     className="inline-block mb-1 font-medium"
                                                 >
-                                                    First name
+                                                    Full Name
                                                 </label>
                                                 <input
-                                                    placeholder="John"
+                                                    placeholder="John Sins"
                                                     required
                                                     type="text"
                                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -68,10 +61,10 @@ const Home = () => {
                                                     htmlFor="lastName"
                                                     className="inline-block mb-1 font-medium"
                                                 >
-                                                    Last name
+                                                    Email
                                                 </label>
                                                 <input
-                                                    placeholder="Doe"
+                                                    placeholder="john.doe@example.org"
                                                     required
                                                     type="text"
                                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -84,10 +77,10 @@ const Home = () => {
                                                     htmlFor="email"
                                                     className="inline-block mb-1 font-medium"
                                                 >
-                                                    E-mail
+                                                    Password
                                                 </label>
                                                 <input
-                                                    placeholder="john.doe@example.org"
+                                                    placeholder="*******"
                                                     required
                                                     type="text"
                                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -98,9 +91,9 @@ const Home = () => {
                                             <div className="mt-4 mb-2 sm:mb-4">
                                                 <button
                                                     type="submit"
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-amber-600 hover:bg-amber-800 focus:shadow-outline focus:outline-none"
                                                 >
-                                                    Subscribe
+                                                    Sign Up
                                                 </button>
                                             </div>
                                             <p className="text-xs text-gray-600 sm:text-sm">
@@ -116,8 +109,11 @@ const Home = () => {
             </div>
             <div className='flex flex-wrap justify-center mt-12 mb-12'>
                 {
-                    coursesCategory.map(category => <Link to={`/courses-categories/${category.id}`} className='px-12 py-6 mr-10 bg-amber-600 text-white font-bold text-center'>{category.name}</Link>)
+                    coursesCategory.map(category =><Link to={`/courses-categories/${category.id}`} className='px-20 py-20 mr-10 bg-amber-600 text-white text-3xl font-bold text-center flex flex-col justify-around gap-5'> <img className='h-24 w-24' src={category.image} alt="" /> {category.name}</Link>)
                 }
+            </div>
+            <div>
+                
             </div>
         </div>
 
