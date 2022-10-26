@@ -16,6 +16,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Registration from "../../Pages/Login/Registration/Registration";
 import PremiumAccessForm from "../../Pages/PremiumAccessForm/PremiumAccessForm";
+import TrialPage from "../../Pages/TrialPage/TrialPage";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
 
 
@@ -96,6 +97,10 @@ export const routes = createBrowserRouter([
             {
                 path:'termsnconditions',
                 element: <ConditionPage></ConditionPage>
+            },
+            {
+                path: '/trial',
+                element: <TrialPage></TrialPage>
             }
         ]
     }

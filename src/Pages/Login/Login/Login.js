@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { signIn, setLoading, providerLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -22,10 +24,10 @@ const Login = () => {
                 const user = result.user;
                 form.reset();
                 setError('');
-                if(user.emailVerified){
-                    navigate(from, {replace: true});
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
                 }
-                else{
+                else {
                     toast.error('Your Email is not Verified! Please Verify Your Email Before Login')
                 }
             })
@@ -37,6 +39,20 @@ const Login = () => {
                 setLoading(false);
             })
     }
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignUp = () => {
+        providerLogin(googleProvider)
+        .then(result => {
+            const user = result.user;
+        })
+        .catch(error => {
+            setError(error)
+            console.error(error)
+        })
+    }
+
     return (
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center'>
@@ -53,10 +69,28 @@ const Login = () => {
                             </h2>
                             <p className="mt-2 text-center text-sm text-gray-600">
                                 Or{' '}
-                                <Link href="#" className="font-medium text-amber-500 hover:text-amber-700">
+                                <Link to='/trial' className="font-medium text-amber-500 hover:text-amber-700">
                                     start your 14-day free trial
                                 </Link>
                             </p>
+                        </div>
+                        <div>
+                            <p className='mb-3 font-bold'>Sign in with</p>
+                            <div className='flex gap-24'>
+                                <Link onClick={handleGoogleSignUp}>
+                                    <div className='px-16 py-3 rounded-lg bg-slate-200'>
+                                        <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
+                                    </div>
+                                </Link>
+                                <Link>
+                                    <div className='px-16 py-3 rounded-lg bg-slate-200'>
+                                        <FaGithub className='text-gray-600 font-bold'></FaGithub>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                        <div>
+                            <p className='text-center text-gray-400'>Or Continue with</p>
                         </div>
                         <form onSubmit={handleSubmit} className="mt-8 space-y-6" action="#" method="POST">
                             <input type="hidden" name="remember" defaultValue="true" />
@@ -98,7 +132,7 @@ const Login = () => {
                                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
                                     <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                       Remember me?
+                                        Remember me?
                                     </label>
                                 </div>
 

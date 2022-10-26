@@ -83,7 +83,7 @@ const Registration = () => {
                             </h2>
                             <p className="mt-2 text-center text-sm text-gray-600">
                                 Or{' '}
-                                <Link href="#" className="font-medium text-amber-500 hover:text-amber-700">
+                                <Link to='/trial' className="font-medium text-amber-500 hover:text-amber-700">
                                     start your 14-day free trial
                                 </Link>
                             </p>

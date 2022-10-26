@@ -5,6 +5,7 @@ import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import ReactTooltip from "react-tooltip";
 import UserProfile from '../../UserProfile/UserProfile';
+import Logo from '../../../logo.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,23 +32,9 @@ const Header = () => {
                             title="Company"
                             class="inline-flex items-center mr-8"
                         >
-                            <svg
-                                class="w-8 text-teal-accent-400"
-                                viewBox="0 0 24 24"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeMiterlimit="10"
-                                stroke="currentColor"
-                                fill="none"
-                            >
-                                <rect x="3" y="1" width="7" height="12" />
-                                <rect x="3" y="17" width="7" height="6" />
-                                <rect x="14" y="1" width="7" height="6" />
-                                <rect x="14" y="11" width="7" height="12" />
-                            </svg>
-                            <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                                Company
+                            <img src={Logo} alt="" />
+                            <span class="ml-5 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                                Codeamy
                             </span>
                         </Link>
                         <ul class="flex items-center hidden space-x-8 lg:flex">
