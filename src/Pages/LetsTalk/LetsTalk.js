@@ -1,4 +1,6 @@
 import React from 'react';
+import Lottie from "lottie-react";
+import reader from '../../asset/83124-talk.json'
 
 const LetsTalk = () => {
     return (
@@ -9,7 +11,9 @@ const LetsTalk = () => {
                         <h2 className="text-5xl text-amber-500 font-bold leading-tight lg:text-5xl">Let's talk!</h2>
                         <div className=" text-amber-500">Share what you want to say...</div>
                     </div>
-                    <img src="https://i.ibb.co/y8vDqFq/letstalk.png" alt="" className="" />
+                    <div>
+                        <Lottie animationData={reader} loop={true}></Lottie>
+                    </div>
                 </div>
                 <form novalidate="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div>

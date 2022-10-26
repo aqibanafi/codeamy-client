@@ -4,6 +4,9 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
+import reader from '../../../asset/72874-user-profile-v2.json'
+import Lottie from "lottie-react";
+import Logo from '../../../logo.png'
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -61,7 +64,7 @@ const Login = () => {
                         <div>
                             <img
                                 className="mx-auto h-12 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                src={Logo}
                                 alt="Your Company"
                             />
                             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
@@ -159,7 +162,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className='w-3/5'>
-                    <img src="https://i.ibb.co/jwVPRH4/login.jpg" alt="" />
+                   <Lottie animationData={reader} loop={true}></Lottie>
                 </div>
             </div>
         </div>

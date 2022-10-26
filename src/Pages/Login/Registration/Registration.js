@@ -4,6 +4,9 @@ import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { GoogleAuthProvider } from 'firebase/auth';
+import Logo from '../../../logo.png'
+import reader from '../../../asset/112454-form-registration.json'
+import Lottie from "lottie-react";
 
 const Registration = () => {
     const [error, setError] = useState('');
@@ -75,7 +78,7 @@ const Registration = () => {
                         <div>
                             <img
                                 className="mx-auto h-12 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                src={Logo}
                                 alt="Your Company"
                             />
                             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
@@ -199,7 +202,7 @@ const Registration = () => {
                     </div>
                 </div>
                 <div className='w-3/5'>
-                    <img src="https://i.ibb.co/Khs2Pp8/registration.jpg" alt="" />
+                    <Lottie animationData={reader} loop={true}></Lottie>
                 </div>
             </div>
 
