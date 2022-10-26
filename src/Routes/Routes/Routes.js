@@ -14,6 +14,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Registration from "../../Pages/Login/Registration/Registration";
 import PremiumAccessForm from "../../Pages/PremiumAccessForm/PremiumAccessForm";
+import UserProfile from "../../Pages/UserProfile/UserProfile";
 
 
 export const routes = createBrowserRouter([
@@ -81,6 +82,10 @@ export const routes = createBrowserRouter([
                 path: '/courses',
                 element: <AllCourse></AllCourse>,
                 loader: () => fetch('http://localhost:5000/courses')
+            },
+            {
+                path: '/profile',
+                element: <UserProfile></UserProfile>
             }
         ]
     }

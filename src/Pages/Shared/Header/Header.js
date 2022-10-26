@@ -11,7 +11,7 @@ const Header = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => { })
-            toast.error("You Signed Out!")
+        toast.error("You Signed Out!")
             .catch(error => console.error(error))
     }
 
@@ -97,7 +97,7 @@ const Header = () => {
                                             <span className='text-white font-bold text-xl'>Hello, {user?.displayName}</span>
                                             <Link to="/profile">
                                                 {user?.photoURL ?
-                                                    <img className='h-10 w-10 rounded-full' src={user?.photoURL}></img>
+                                                    <Link to='/profile'><img className='h-10 w-10 rounded-full' src={user?.photoURL}></img></Link>
                                                     :
                                                     <FaUser></FaUser>
                                                 }
