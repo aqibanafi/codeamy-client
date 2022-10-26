@@ -192,7 +192,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto grid grid-cols-2 lg:grid-cols-3 gap-5 justify-center mt-12 mb-12'>
+            <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center mt-12 mb-12'>
                 {
                     coursesCategory.map(category => <Link to={`/courses-categories/${category.id}`} className='px-10 py-10 mr-10 bg-amber-600 text-white text-3xl font-bold text-center flex flex-wrap items-center justify-around gap-5'> <img className='h-24 w-24' src={category.image} alt="" /> {category.name}</Link>)
                 }
