@@ -32,7 +32,7 @@ const RightSideCourse = ({course}) => {
                         <p>Price: $ <span className='text-xl font-bold'>{price}</span></p>
                     </div>
                     <div className="card-actions">
-                        <Link to={`/course/${_id}`}>
+                        <Link to={`/premium-access/${_id}`}>
                             <button className="btn bg-amber-600 text-white hover:bg-amber-800">Buy Now</button>
                         </Link>
                     </div>

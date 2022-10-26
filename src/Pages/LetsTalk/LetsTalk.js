@@ -14,15 +14,15 @@ const LetsTalk = () => {
                 <form novalidate="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div>
                         <label for="name" className="text-sm">Full name</label>
-                        <input id="name" type="text" placeholder="" className="w-full p-3 rounded bg-amber-700" />
+                        <input id="name" type="text" placeholder="" className="w-full p-3 rounded bg-slate-100" />
                     </div>
                     <div>
                         <label for="email" className="text-sm">Email</label>
-                        <input id="email" type="email" className="w-full p-3 rounded bg-amber-700" />
+                        <input id="email" type="email" className="w-full p-3 rounded bg-slate-100" />
                     </div>
                     <div>
                         <label for="message" className="text-sm">Message</label>
-                        <textarea id="message" rows="3" className="w-full p-3 rounded bg-amber-700"></textarea>
+                        <textarea id="message" rows="3" className="w-full p-3 rounded bg-slate-1000"></textarea>
                     </div>
                     <button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-amber-600 text-white hover:bg-amber-800">Send Message</button>
                 </form>
