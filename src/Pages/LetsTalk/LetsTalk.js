@@ -6,7 +6,7 @@ const LetsTalk = () => {
             <div className="grid max-w-screen-xl grid-cols-1 gap-12 px-8 py-16 mx-auto rounded-lg items-center md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-orange-100 text-black">
                 <div className="flex flex-col justify-between">
                     <div className="space-y-2">
-                        <h2 className="text-4xl text-amber-500 font-bold leading-tight lg:text-5xl">Let's talk!</h2>
+                        <h2 className="text-5xl text-amber-500 font-bold leading-tight lg:text-5xl">Let's talk!</h2>
                         <div className=" text-amber-500">Share what you want to say...</div>
                     </div>
                     <img src="https://i.ibb.co/y8vDqFq/letstalk.png" alt="" className="" />

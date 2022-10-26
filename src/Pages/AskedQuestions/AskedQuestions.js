@@ -3,7 +3,7 @@ import React from 'react';
 const AskedQuestions = () => {
     return (
         <div className='container mx-auto'>
-            <h1 className='text-4xl font-bold text-amber-500 text-center mt-12 mb-20'>Frequently Asked Questions</h1>
+            <h1 className='text-5xl font-bold text-amber-500 text-center mt-12 mb-20'>Frequently Asked Questions</h1>
             <div class="space-y-4 mb-20">
                 <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" open>
                     <summary class="flex cursor-pointer items-center justify-between">

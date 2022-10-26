@@ -6,10 +6,10 @@ const PopularCourseDisplay = ({ course }) => {
     const { _id, title, image, detail, rating, price, enrolled } = course;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl h-[550px]">
                 <div>
                     <figure className="px-10 pt-10">
-                        <img src={image} alt="Shoes" className="rounded-xl" />
+                        <img src={image} alt="Shoes" className="rounded-xl bg-cover max-h-44" />
                     </figure>
                 </div>
                 <div className="card-body items-center text-center">
