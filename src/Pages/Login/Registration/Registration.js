@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Registration = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateUserProfile, verifyEmail, providerLogin } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -52,6 +54,19 @@ const Registration = () => {
         setAccepted(event.target.checked)
     }
 
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignUp = () => {
+        providerLogin(googleProvider)
+        .then(result => {
+            const user = result.user;
+        })
+        .catch(error => {
+            setError(error)
+            console.error(error)
+        })
+    }
+
     return (
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center'>
@@ -72,6 +87,24 @@ const Registration = () => {
                                     start your 14-day free trial
                                 </Link>
                             </p>
+                        </div>
+                        <div>
+                            <p className='mb-3 font-bold'>Sign up with</p>
+                            <div className='flex gap-24'>
+                                <Link onClick={handleGoogleSignUp}>
+                                    <div className='px-16 py-3 rounded-lg bg-slate-200'>
+                                        <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
+                                    </div>
+                                </Link>
+                                <Link>
+                                    <div className='px-16 py-3 rounded-lg bg-slate-200'>
+                                        <FaGithub className='text-gray-600 font-bold'></FaGithub>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                        <div>
+                            <p className='text-center text-gray-400'>Or Continue with</p>
                         </div>
                         <form onSubmit={handleSubmit} className="mt-8 space-y-6" action="#" method="POST">
                             <input type="hidden" name="remember" defaultValue="true" />

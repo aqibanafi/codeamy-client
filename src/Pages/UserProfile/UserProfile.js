@@ -7,11 +7,11 @@ const UserProfile = () => {
     return (
         <div className='flex justify-center mt-20 mb-20'>
             <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-slate-200 text-black">
-                <img src={user.photoURL} alt="" className="w-80 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+                <img src={user?.photoURL} alt="" className="w-80 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
                 <div className="space-y-4 text-center divide-y divide-gray-700">
                     <div className="my-2 space-y-1">
-                        <h2 className="text-4xl font-bold text-amber-600 sm:text-2xl">{user.displayName}</h2>
-                        <p className="px-5 text-xs sm:text-base dark:text-black">{user.email}</p>
+                        <h2 className="text-4xl font-bold text-amber-600 sm:text-2xl">{user?.displayName}</h2>
+                        <p className="px-5 text-xs sm:text-base dark:text-black">{user?.email}</p>
                     </div>
                     <div className="flex justify-center pt-2 space-x-4 align-center">
                         <Link rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md text-amber-500 hover:text-amber-700">

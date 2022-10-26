@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
@@ -7,10 +7,13 @@ import toast from 'react-hot-toast';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => { 
+                navigate('/')
+            })
         toast.error("You Signed Out!")
             .catch(error => console.error(error))
     }

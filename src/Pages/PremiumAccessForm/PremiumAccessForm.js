@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaStar, FaGoogle } from 'react-icons/fa';
+import { FaStar, FaGooglePay } from 'react-icons/fa';
 
 const PremiumAccessForm = () => {
     const courseData = useLoaderData();
@@ -59,7 +59,7 @@ const PremiumAccessForm = () => {
                         <div className="p-8 bg-gray-100 flex flex-col lg:w-full xl:w-3/5">
                             <button className="border border-transparent hover:border-gray-300 bg-amber-700 hover:bg-white text-white hover:text-gray-900 flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
                                 <div>
-                                    <FaGoogle></FaGoogle>
+                                    <FaGooglePay></FaGooglePay>
                                 </div>
                                 <div>
                                     <p className="text-base leading-4">Pay</p>

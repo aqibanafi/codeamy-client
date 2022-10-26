@@ -8,6 +8,7 @@ import LetsTalk from '../LetsTalk/LetsTalk';
 import PopularCourseDisplay from '../PopularCourseDisplay/PopularCourseDisplay';
 import toast from 'react-hot-toast';
 import AboutUs from '../AboutUS/AboutUs';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 
 const Home = () => {
