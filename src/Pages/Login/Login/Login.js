@@ -10,7 +10,8 @@ import Logo from '../../../logo.png'
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signIn, setLoading, googleProviderLogin, githubProviderLogin } = useContext(AuthContext);
+    const [email, setEmail] = useState(null)
+    const { signIn, setLoading, googleProviderLogin, githubProviderLogin, resetPassword } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -43,31 +44,47 @@ const Login = () => {
             })
     }
 
+    const getEmail = event => {
+        event.preventDefault();
+        setEmail(event.target.value)
+    }
+
+    const handleResetPassword = () => {
+        resetPassword(email)
+            .then(() => { 
+                toast.success("Password Reset Link Sent!")
+            })
+            .catch(error => {
+                setError(error)
+                console.error(error)
+            })
+    }
+
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
     const handleGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
-        .then(result => {
-            toast.success("Successfully Logged in!")
-            const user = result.user;
-        })
-        .catch(error => {
-            setError(error)
-            console.error(error)
-        })
+            .then(result => {
+                toast.success("Successfully Logged in!")
+                const user = result.user;
+            })
+            .catch(error => {
+                setError(error)
+                console.error(error)
+            })
     }
 
     const handleGithubSignIn = () => {
         githubProviderLogin(githubProvider)
-        .then(result => {
-            toast.success("Successfully Logged in!")
-            const user = result.user;
-        })
-        .catch(error => {
-            setError(error)
-            console.error(error)
-        })
+            .then(result => {
+                toast.success("Successfully Logged in!")
+                const user = result.user;
+            })
+            .catch(error => {
+                setError(error)
+                console.error(error)
+            })
     }
 
     return (
@@ -118,6 +135,7 @@ const Login = () => {
                                     </label>
                                     <input
                                         name="email"
+                                        onBlur={getEmail}
                                         type="email"
                                         autoComplete="email"
                                         required
@@ -141,21 +159,30 @@ const Login = () => {
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <div className="flex items-center">
-                                    <input
-                                        id="remember-me"
-                                        name="remember-me"
-                                        type="checkbox"
-                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                    />
-                                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                        Remember me?
-                                    </label>
+                                <div className="flex items-center justify-between">
+                                    <div className='flex items-center'>
+                                        <input
+                                            id="remember-me"
+                                            name="remember-me"
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                        />
+                                        <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                                            Remember me?
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <Link onClick={handleResetPassword}><p><small>Forget Password?</small></p></Link>
+                                    </div>
+                                </div>
+                                <div>
+                                    <Link><p><small>Forget Password?</small></p></Link>
                                 </div>
 
                                 <div className="text-sm">
                                     <div href="#" className="font-normal">
-                                        New to thi website? Please <Link to='/registration' className='text-amber-500'>Register</Link>
+                                        New to this website? Please <Link to='/registration' className='text-amber-500'>Register</Link>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +203,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className='w-3/5'>
-                   <Lottie animationData={reader} loop={true}></Lottie>
+                    <Lottie animationData={reader} loop={true}></Lottie>
                 </div>
             </div>
         </div>
