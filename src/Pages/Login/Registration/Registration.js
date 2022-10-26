@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import Logo from '../../../logo.png'
 import reader from '../../../asset/112454-form-registration.json'
 import Lottie from "lottie-react";
@@ -11,7 +11,7 @@ import Lottie from "lottie-react";
 const Registration = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail, providerLogin } = useContext(AuthContext);
+    const { createUser, updateUserProfile, verifyEmail, googleProviderLogin, githubProviderLogin } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -60,9 +60,24 @@ const Registration = () => {
     const googleProvider = new GoogleAuthProvider()
 
     const handleGoogleSignUp = () => {
-        providerLogin(googleProvider)
+        googleProviderLogin(googleProvider)
         .then(result => {
             const user = result.user;
+            toast.success("Successfully Signed up!")
+        })
+        .catch(error => {
+            setError(error)
+            console.error(error)
+        })
+    }
+
+    const githubProvider = new GithubAuthProvider()
+
+    const handleGithubSignUp = () => {
+        githubProviderLogin(githubProvider)
+        .then(result => {
+            const user = result.user;
+            toast.success("Successfully Signed up!")
         })
         .catch(error => {
             setError(error)
@@ -99,7 +114,7 @@ const Registration = () => {
                                         <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
                                     </div>
                                 </Link>
-                                <Link>
+                                <Link onClick={handleGithubSignUp}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
                                         <FaGithub className='text-gray-600 font-bold'></FaGithub>
                                     </div>

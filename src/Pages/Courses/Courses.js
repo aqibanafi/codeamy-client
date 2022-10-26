@@ -2,6 +2,7 @@ import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaVideo, FaFilePdf, FaBook, FaCertificate, FaCalendarTimes, FaLanguage, FaCheck, FaCheckSquare } from 'react-icons/fa';
 import Pdf from "react-to-pdf";
+import Swal from 'sweetalert2'
 
 const ref = createRef()
 const options = {
@@ -13,6 +14,17 @@ const options = {
 const Courses = () => {
     const courseDetail = useLoaderData();
     const { _id, image, title, detail, overview, language, rating, enrolled, author, sections, published_date, lectures, total_length, video_length, article_number, certificate, content } = courseDetail;
+    const Swal = require('sweetalert2')
+
+    const handleAccessCourse = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'You Got Premium Access!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    }
 
     return (
         <div>
@@ -103,7 +115,7 @@ const Courses = () => {
             </div>
             <div className='flex justify-center mt-12 mb-20'>
                 <Link to={`/premium-access/${_id}`}>
-                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-amber-600 text-white hover:bg-amber-800">Get Premium Access</button>
+                    <button onClick={handleAccessCourse} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-amber-600 text-white hover:bg-amber-800">Get Premium Access</button>
                 </Link>
             </div>
         </div>

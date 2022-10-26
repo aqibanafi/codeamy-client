@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaGooglePay } from 'react-icons/fa';
+import Swal from 'sweetalert2'
 
 const PremiumAccessForm = () => {
     const courseData = useLoaderData();
@@ -8,11 +9,22 @@ const PremiumAccessForm = () => {
     const countries = ["China", "Russia", "UK"];
     const [menu, setMenu] = useState(false);
     const [country, setCountry] = useState("United States");
+    const Swal = require('sweetalert2')
 
     const changeText = (e) => {
         setMenu(false);
         setCountry(e.target.textContent);
     };
+
+    const handlePayCourse = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Payment Done!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    }
 
     return (
         <div className="flex justify-center items-center">
@@ -59,10 +71,7 @@ const PremiumAccessForm = () => {
                         <div className="p-8 bg-gray-100 flex flex-col lg:w-full xl:w-3/5">
                             <button className="border border-transparent hover:border-gray-300 bg-amber-700 hover:bg-white text-white hover:text-gray-900 flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
                                 <div>
-                                    <FaGooglePay></FaGooglePay>
-                                </div>
-                                <div>
-                                    <p className="text-base leading-4">Pay</p>
+                                    <FaGooglePay className='h-10 w-10'></FaGooglePay>
                                 </div>
                             </button>
 
@@ -114,7 +123,7 @@ const PremiumAccessForm = () => {
                                 <input className="border rounded-bl rounded-br border-gray-300 p-4 w-full text-base leading-4 placeholder-gray-600 text-gray-600" type="text" placeholder="ZIP" />
                             </div>
 
-                            <button className="mt-8 border border-transparent hover:border-gray-300 bg-amber-700 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
+                            <button onClick={handlePayCourse} className="mt-8 border border-transparent hover:border-gray-300 bg-amber-700 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
                                 <div>
                                     <p className="text-base leading-4">Pay $ {price}</p>
                                 </div>

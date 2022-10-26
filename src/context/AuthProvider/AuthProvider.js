@@ -8,7 +8,12 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const providerLogin = (provider) => {
+    const googleProviderLogin = provider => {
+        setLoading(true);
+        return signInWithPopup(auth, provider);
+    }
+
+    const githubProviderLogin = provider => {
         setLoading(true);
         return signInWithPopup(auth, provider);
     }
@@ -23,7 +28,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const updateUserProfile = (profile) => {
+    const updateUserProfile = profile => {
         return updateProfile(auth.currentUser, profile);
     }
 
@@ -51,7 +56,7 @@ const AuthProvider = ({ children }) => {
 
     }, [])
 
-    const authInfo = { user, loading, setLoading, providerLogin, createUser, signIn, updateUserProfile, verifyEmail, logOut };
+    const authInfo = { user, loading, setLoading, googleProviderLogin, githubProviderLogin, createUser, signIn, updateUserProfile, verifyEmail, logOut };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

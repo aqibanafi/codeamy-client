@@ -3,14 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import reader from '../../../asset/72874-user-profile-v2.json'
 import Lottie from "lottie-react";
 import Logo from '../../../logo.png'
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signIn, setLoading, providerLogin } = useContext(AuthContext);
+    const { signIn, setLoading, googleProviderLogin, githubProviderLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -44,10 +44,24 @@ const Login = () => {
     }
 
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider()
 
-    const handleGoogleSignUp = () => {
-        providerLogin(googleProvider)
+    const handleGoogleSignIn = () => {
+        googleProviderLogin(googleProvider)
         .then(result => {
+            toast.success("Successfully Logged in!")
+            const user = result.user;
+        })
+        .catch(error => {
+            setError(error)
+            console.error(error)
+        })
+    }
+
+    const handleGithubSignIn = () => {
+        githubProviderLogin(githubProvider)
+        .then(result => {
+            toast.success("Successfully Logged in!")
             const user = result.user;
         })
         .catch(error => {
@@ -80,12 +94,12 @@ const Login = () => {
                         <div>
                             <p className='mb-3 font-bold'>Sign in with</p>
                             <div className='flex flex-wrap gap-5'>
-                                <Link onClick={handleGoogleSignUp}>
+                                <Link onClick={handleGoogleSignIn}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
                                         <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
                                     </div>
                                 </Link>
-                                <Link>
+                                <Link onClick={handleGithubSignIn}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
                                         <FaGithub className='text-gray-600 font-bold'></FaGithub>
                                     </div>
