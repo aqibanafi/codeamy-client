@@ -56,7 +56,7 @@ const Login = () => {
     return (
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center'>
-                <div className="w-3/5 flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+                <div className="w-full flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                     <div className="w-full max-w-md space-y-8">
                         <div>
                             <img
@@ -76,7 +76,7 @@ const Login = () => {
                         </div>
                         <div>
                             <p className='mb-3 font-bold'>Sign in with</p>
-                            <div className='flex gap-24'>
+                            <div className='flex flex-wrap gap-5'>
                                 <Link onClick={handleGoogleSignUp}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
                                         <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
@@ -158,7 +158,7 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
-                <div className='w-4/5'>
+                <div className='w-3/5'>
                     <img src="https://i.ibb.co/jwVPRH4/login.jpg" alt="" />
                 </div>
             </div>
