@@ -6,11 +6,16 @@ import toast from 'react-hot-toast';
 import ReactTooltip from "react-tooltip";
 import UserProfile from '../../UserProfile/UserProfile';
 import Logo from '../../../logo.png'
+import DarkModeToggle from "react-dark-mode-toggle";
+
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    console.log(isDarkMode)
 
     const handleLogOut = () => {
         logOut()
@@ -112,6 +117,12 @@ const Header = () => {
                             }
                         </div>
                     </>
+                    <DarkModeToggle
+                        className='hidden lg:block'
+                        onChange={setIsDarkMode}
+                        checked={isDarkMode}
+                        size={50}
+                    />
                     <div class="lg:hidden z-10">
                         <button
                             aria-label="Open Menu"
@@ -145,23 +156,9 @@ const Header = () => {
                                                 title="Company"
                                                 class="inline-flex items-center"
                                             >
-                                                <svg
-                                                    class="w-8 text-deep-purple-accent-400"
-                                                    viewBox="0 0 24 24"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeMiterlimit="10"
-                                                    stroke="currentColor"
-                                                    fill="none"
-                                                >
-                                                    <rect x="3" y="1" width="7" height="12" />
-                                                    <rect x="3" y="17" width="7" height="6" />
-                                                    <rect x="14" y="1" width="7" height="6" />
-                                                    <rect x="14" y="11" width="7" height="12" />
-                                                </svg>
+                                                <img src={Logo} alt="" />
                                                 <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                    Company
+                                                    Codeamy
                                                 </span>
                                             </Link>
                                         </div>
@@ -185,37 +182,37 @@ const Header = () => {
                                         <ul class="space-y-4">
                                             <li>
                                                 <Link
-                                                    to='/'
+                                                    to='/courses'
                                                     aria-label="Our product"
                                                     title="Our product"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    Product
+                                                    Courses
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link
-                                                    to='/'
+                                                    to='/blogs'
                                                     aria-label="Our product"
                                                     title="Our product"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    Features
+                                                    Blogs
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link
-                                                    to='/'
+                                                    to='/frequently-asked-questions'
                                                     aria-label="Product pricing"
                                                     title="Product pricing"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    Pricing
+                                                    FAQ
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link
-                                                    to='/'
+                                                    o='/aboutus'
                                                     aria-label="About us"
                                                     title="About us"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -225,23 +222,28 @@ const Header = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    to='/'
+                                                    to='/login'
                                                     aria-label="Sign in"
                                                     title="Sign in"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
                                                     Sign in
                                                 </Link>
+                                                
                                             </li>
                                             <li>
                                                 <Link
-                                                    to='/'
-                                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign up"
-                                                    title="Sign up"
+                                                    to='/registration'
+                                                    aria-label="Sign in"
+                                                    title="Sign in"
+                                                    class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
                                                     Sign up
                                                 </Link>
+                                                
+                                            </li>
+                                            <li>
+                                                
                                             </li>
                                         </ul>
                                     </nav>

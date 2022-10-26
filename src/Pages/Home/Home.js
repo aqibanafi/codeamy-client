@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import Hero from '../../images/hero-image.jpg'
 import AskedQuestions from '../AskedQuestions/AskedQuestions';
 import BlogMain from '../Blogs/BlogMain/BlogMain';
@@ -14,7 +13,7 @@ import Lottie from "lottie-react";
 const Home = () => {
     const coursesCategory = useLoaderData();
     const [popularCourse, setPopularCourse] = useState([])
-   
+
     return (
         <div className='relative'>
             <div>
@@ -45,7 +44,7 @@ const Home = () => {
                                     </Link>
                                 </div>
                                 <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-                                <Lottie animationData={reader} loop={true}></Lottie>
+                                    <Lottie animationData={reader} loop={true}></Lottie>
                                 </div>
                             </div>
                         </div>
