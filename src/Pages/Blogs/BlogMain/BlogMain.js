@@ -8,7 +8,7 @@ const BlogMain = () => {
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white'>
                 <article className="flex flex-col bg-amber-600">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                        <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src="https://i.ibb.co/5BbgpCR/What-is-CORS.webp" />
+                        <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/5BbgpCR/What-is-CORS.webp" />
                     </Link>
                     <div className="flex flex-col flex-1 p-6">
                         <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>
@@ -26,7 +26,7 @@ const BlogMain = () => {
 
                 <article className="flex flex-col bg-amber-600">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                        <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src="https://i.ibb.co/3sTXscT/1-Jb-Do7-U0l62v-YMfm1-Wxn-A1g.png" />
+                        <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/3sTXscT/1-Jb-Do7-U0l62v-YMfm1-Wxn-A1g.png" />
                     </Link>
                     <div className="flex flex-col flex-1 p-6">
                         <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>
@@ -44,7 +44,7 @@ const BlogMain = () => {
 
                 <article className="flex flex-col bg-amber-600">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                        <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src="https://i.ibb.co/YXMjtrz/maxresdefault.jpg" />
+                        <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/YXMjtrz/maxresdefault.jpg" />
                     </Link>
                     <div className="flex flex-col flex-1 p-6">
                         <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>
@@ -62,7 +62,7 @@ const BlogMain = () => {
 
                 <article className="flex flex-col bg-amber-600">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                        <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src="https://i.ibb.co/pd4yhCP/nodejs-use-cases-cover-image.png" />
+                        <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/pd4yhCP/nodejs-use-cases-cover-image.png" />
                     </Link>
                     <div className="flex flex-col flex-1 p-6">
                         <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>

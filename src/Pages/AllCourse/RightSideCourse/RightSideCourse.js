@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const CategoryCourses = ({ course }) => {
+const RightSideCourse = ({course}) => {
     const { _id, title, image, detail, rating, price, enrolled } = course;
     return (
         <div>
@@ -20,11 +20,7 @@ const CategoryCourses = ({ course }) => {
                     <div className='flex gap-10'>
                         <div className='flex items-center gap-2'>
                             <p>{rating}</p>
-                            <div className='flex gap-1'>
-                                <FaStar className='text-amber-300'></FaStar>
-                                <FaStar className='text-amber-300'></FaStar>
-                                <FaStar className='text-amber-300'></FaStar>
-                                <FaStar className='text-amber-300'></FaStar>
+                            <div>
                                 <FaStar className='text-amber-300'></FaStar>
                             </div>
                         </div>
@@ -46,4 +42,4 @@ const CategoryCourses = ({ course }) => {
     );
 };
 
-export default CategoryCourses;
+export default RightSideCourse;
