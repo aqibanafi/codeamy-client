@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaVideo, FaFilePdf, FaBook, FaCertificate, FaCalendarTimes, FaLanguage, FaCheck, FaCheckSquare } from 'react-icons/fa';
+import Pdf from "react-to-pdf";
 
+const ref = createRef()
+const options = {
+    orientation: 'landscape',
+    unit: 'in',
+    format: [20, 18]
+};
 
 const Courses = () => {
     const courseDetail = useLoaderData();
@@ -10,7 +17,7 @@ const Courses = () => {
     return (
         <div>
             <div className='bg-gray-800 text-white p-5'>
-                <div className='container mx-auto flex items-center justify-between'>
+                <div className='container mx-auto flex flex-wrap items-center justify-between'>
                     <div>
                         <h1 className='text-3xl font-bold mb-5'>{title}</h1>
                         <p className='text-xl font-normal mb-2'>{detail}</p>
@@ -35,17 +42,20 @@ const Courses = () => {
                         </div>
                     </div>
                     <div>
-                        <button type="button" className="flex items-center text-xl gap-5 px-20 py-3 font-bold rounded dark:bg-gray-100 dark:text-gray-800">
-                            <FaFilePdf className='text-3xl'></FaFilePdf>
-                            Download PDF
-                        </button>
+                        <Pdf targetRef={ref} filename="course-outline.pdf" options={options} x={.5} y={.5} scale={0.8}>
+                            {({ toPdf }) => <button onClick={toPdf} type="button" className="flex items-center text-xl gap-5 px-20 py-3 font-bold rounded dark:bg-gray-100 dark:text-gray-800">
+                                <FaFilePdf className='text-3xl'></FaFilePdf>
+                                Download PDF
+                            </button>}
+                        </Pdf>
                     </div>
                 </div>
             </div>
             <div className='flex justify-center mt-10 mb-20'>
                 <img className='w-2/5' src={image} alt="" />
             </div>
-            <div className='container mx-auto mt-10'>
+            <div ref={ref} className='container mx-auto mt-10'>
+                <h1 className='text-3xl font-bold mb-5'>Course Title: <span className='text-amber-500'>{title}</span></h1>
                 <h2 className='text-2xl font-bold mb-5'>Course Overview</h2>
                 <div className='mb-10'>
                     {
