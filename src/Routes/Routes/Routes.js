@@ -9,6 +9,7 @@ import Blog03 from "../../Pages/Blogs/Blog03/Blog03";
 import Blog04 from "../../Pages/Blogs/Blog04/Blog04";
 import BlogMain from "../../Pages/Blogs/BlogMain/BlogMain";
 import Category from "../../Pages/Category/Category";
+import ConditionPage from "../../Pages/ConditionPage/ConditionPage";
 import Courses from "../../Pages/Courses/Courses";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
@@ -91,6 +92,10 @@ export const routes = createBrowserRouter([
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>
+            },
+            {
+                path:'termsnconditions',
+                element: <ConditionPage></ConditionPage>
             }
         ]
     }

@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import ReactTooltip from "react-tooltip";
+import UserProfile from '../../UserProfile/UserProfile';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +13,7 @@ const Header = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { 
+            .then(() => {
                 navigate('/')
             })
         toast.error("You Signed Out!")
@@ -100,7 +102,13 @@ const Header = () => {
                                             <span className='text-white font-bold text-xl'>Hello, {user?.displayName}</span>
                                             <Link to="/profile">
                                                 {user?.photoURL ?
-                                                    <Link to='/profile'><img className='h-10 w-10 rounded-full' src={user?.photoURL}></img></Link>
+                                                    <div>
+                                                        <Link to='/profile' data-tip data-for="registerTip"><img className='h-10 w-10 rounded-full' src={user?.photoURL}></img></Link>
+
+                                                        <ReactTooltip id="registerTip" place="top" effect="solid">
+                                                            <UserProfile></UserProfile>
+                                                        </ReactTooltip>
+                                                    </div>
                                                     :
                                                     <FaUser></FaUser>
                                                 }
