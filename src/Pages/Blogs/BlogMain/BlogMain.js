@@ -5,7 +5,7 @@ const BlogMain = () => {
     return (
         <div className='mt-12 mb-20'>
             <h1 className='text-5xl font-bold text-center text-amber-500 mb-20'>Latest Blogs</h1>
-            <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white'>
+            <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 text-white'>
                 <article className="flex flex-col bg-amber-600">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                         <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/5BbgpCR/What-is-CORS.webp" />

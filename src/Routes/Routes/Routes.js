@@ -18,6 +18,7 @@ import Registration from "../../Pages/Login/Registration/Registration";
 import PremiumAccessForm from "../../Pages/PremiumAccessForm/PremiumAccessForm";
 import TrialPage from "../../Pages/TrialPage/TrialPage";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 
 export const routes = createBrowserRouter([
@@ -59,7 +60,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/premium-access/:id',
                 loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
-                element: <PremiumAccessForm></PremiumAccessForm>
+                element: <PrivateRoutes><PremiumAccessForm></PremiumAccessForm></PrivateRoutes>
             },
             {
                 path: '/blogs',
