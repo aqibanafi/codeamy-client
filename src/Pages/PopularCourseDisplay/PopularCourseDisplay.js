@@ -14,7 +14,7 @@ const PopularCourseDisplay = ({ course }) => {
                     <p className='text-2xl font-bold mb-3'>{title}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-medium'>{detail.slice(0, 100)}</p>
+                    <p className='font-medium'>{detail}</p>
                 </div>
                 <div className='flex justify-between p-x-10'>
                     <div className='flex items-center gap-3'>

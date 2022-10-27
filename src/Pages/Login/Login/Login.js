@@ -111,16 +111,16 @@ const Login = () => {
                             </p>
                         </div>
                         <div>
-                            <p className='mb-3 font-bold'>Sign in with</p>
-                            <div className='flex flex-wrap gap-5'>
+                            <p className='mb-5 font-bold text-center'>Sign in with</p>
+                            <div className='flex flex-wrap justify-center gap-5'>
                                 <Link onClick={handleGoogleSignIn}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
-                                        <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
+                                        <FaGoogle className='text-amber-500 font-bold text-2xl'></FaGoogle>
                                     </div>
                                 </Link>
                                 <Link onClick={handleGithubSignIn}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
-                                        <FaGithub className='text-gray-600 font-bold'></FaGithub>
+                                        <FaGithub className='text-amber-500 font-bold text-2xl'></FaGithub>
                                     </div>
                                 </Link>
                             </div>
@@ -184,7 +184,7 @@ const Login = () => {
 
                                 <div className="text-sm">
                                     <div href="#" className="font-normal">
-                                        New to this website? Please <Link to='/registration' className='text-amber-500'>Register</Link>
+                                        New to this website? Please <Link to='/registration' className='text-amber-500'>Sign up</Link>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +197,7 @@ const Login = () => {
                             >
                                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                 </span>
-                                Log in
+                                Sign in
                             </button>
                         </form>
                     </div>

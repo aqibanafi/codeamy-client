@@ -7,14 +7,14 @@ const RightSideCourse = ({ course }) => {
     return (
         <div>
             <div className='flex flex-col justify-between p-5 shadow-xl rounded-xl h-full' data-aos="fade-up">
-                <div>
+                <div className='flex justify-center'>
                     <img className='h-72 mb-10 rounded-lg' src={image} alt="" />
                 </div>
                 <div>
                     <p className='text-2xl font-bold mb-3'>{title}</p>
                 </div>
                 <div className='mb-3'>
-                    <p className='font-medium'>{detail.slice(0, 100)}</p>
+                    <p className='font-medium'>{detail}</p>
                 </div>
                 <div className='flex justify-between p-x-10'>
                     <div className='flex items-center gap-3'>

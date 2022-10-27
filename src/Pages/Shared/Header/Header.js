@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,  NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
@@ -41,50 +41,62 @@ const Header = () => {
                             class="inline-flex items-center mr-8"
                         >
                             <img src={Logo} alt="" />
-                            <span class="ml-5 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                            <span class="ml-5 text-xl font-bold hidden md:block tracking-wide text-gray-100 uppercase">
                                 Codeamy
                             </span>
                         </Link>
                         <ul class="flex items-center hidden space-x-8 lg:flex">
                             <li>
-                                <Link
+                                <NavLink
+                                className={({ isActive }) =>
+                                isActive  ? "bg-slate-100 py-3 px-3 rounded font-bold" : "text-white hover:text-black"
+                                }
                                     to='/courses'
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     Courses
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
+                                className={({ isActive }) =>
+                                isActive  ? "bg-slate-100 py-3 px-3 rounded font-bold" : "text-white hover:text-black"
+                                }
                                     to='/blogs'
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     Blogs
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
+                                className={({ isActive }) =>
+                                isActive  ? "bg-slate-100 py-3 px-3 rounded font-bold" : "text-white hover:text-black"
+                                }
                                     to='/frequently-asked-questions'
                                     aria-label="Product pricing"
                                     title="Product pricing"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     FAQ
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
+                                className={({ isActive }) =>
+                                isActive  ? "bg-slate-100 py-3 px-3 rounded font-bold" : "text-white hover:text-black"
+                                }
                                     to='/aboutus'
                                     aria-label="About us"
                                     title="About us"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     About us
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
@@ -114,7 +126,7 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link to='/login'><button className="btn glass">Login</button></Link>
+                                        <Link to='/login'><button className="btn glass">Sign in</button></Link>
                                         <Link to='/registration'><button className="btn glass">Sign up</button></Link>
                                     </>
                             }
@@ -216,7 +228,7 @@ const Header = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    o='/aboutus'
+                                                    to='/aboutus'
                                                     aria-label="About us"
                                                     title="About us"
                                                     class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"

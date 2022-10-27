@@ -6,6 +6,14 @@ A simple React App build with React & React Router [Live Website](https://quiz-s
 
 Hosted By Netlify -> [Codeamy](https://quiz-sage.netlify.app/)
 
+# Website Overview
+
+* Education website with various courses
+* 24 Courses are available
+* 6 Category courses are available
+* Download PDF facilities
+* Get detail and clear information about courses
+
 # Build With
 
 * React
@@ -22,9 +30,12 @@ Hosted By Netlify -> [Codeamy](https://quiz-sage.netlify.app/)
 * Daisy UI
 * React Sweet Alert
 * React Dark Mode Toggle
+* AOS Animation
 
 
 # Installation
+
+
 1. Clone the Repo
 ```sh
 git clone https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-aqibanafi
@@ -52,4 +63,8 @@ git clone https://github.com/programming-hero-web-course1/b610-learning-platform
 7. Install NPM packages
    ```sh
    npm install react-tooltip
+   ```
+8. Install NPM packages
+   ```sh
+   npm install react-@aos
    ```

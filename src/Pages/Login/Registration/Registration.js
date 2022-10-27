@@ -107,16 +107,16 @@ const Registration = () => {
                             </p>
                         </div>
                         <div>
-                            <p className='mb-3 font-bold'>Sign up with</p>
-                            <div className='flex flex-wrap gap-5'>
+                            <p className='mb-5 font-bold text-center'>Sign up with</p>
+                            <div className='flex flex-wrap justify-center gap-5'>
                                 <Link onClick={handleGoogleSignUp}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
-                                        <FaGoogle className='text-gray-600 font-bold'></FaGoogle>
+                                        <FaGoogle className='text-amber-500 font-bold text-2xl'></FaGoogle>
                                     </div>
                                 </Link>
                                 <Link onClick={handleGithubSignUp}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
-                                        <FaGithub className='text-gray-600 font-bold'></FaGithub>
+                                        <FaGithub className='text-amber-500 font-bold text-2xl'></FaGithub>
                                     </div>
                                 </Link>
                             </div>
@@ -162,7 +162,7 @@ const Registration = () => {
                                         type="text"
                                         autoComplete="photo"
                                         className="mb-5 relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                                        placeholder="https://picsum.photos/200/300"
+                                        placeholder="Photo URL"
                                     />
                                 </div>
                                 <div>
@@ -195,7 +195,7 @@ const Registration = () => {
 
                                 <div className="text-sm">
                                     <div href="#" className="font-normal">
-                                        Already Sign Up? Please <Link to='/login' className='text-amber-500'>Login</Link>
+                                        Already Sign Up? Please <Link to='/login' className='text-amber-500'>Sign in</Link>
                                     </div>
                                 </div>
                             </div>
