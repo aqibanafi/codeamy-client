@@ -5,7 +5,7 @@ import PopularCourseDisplay from '../PopularCourseDisplay/PopularCourseDisplay';
 
 const PopularCourse = () => {
     const courseList = useLoaderData();
-   
+
     return (
         <div>
             {

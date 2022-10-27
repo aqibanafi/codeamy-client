@@ -14,7 +14,7 @@ const AboutUs = () => {
                     </p>
                 </div>
                 <div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">
-                    <div>
+                    <div data-aos="zoom-in-up">
                         <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
                             <img
                                 className="absolute object-cover w-full h-full rounded"
@@ -45,7 +45,7 @@ const AboutUs = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="zoom-in-up">
                         <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
                             <img
                                 className="absolute object-cover w-full h-full rounded"
@@ -76,7 +76,7 @@ const AboutUs = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="zoom-in-up">
                         <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
                             <img
                                 className="absolute object-cover w-full h-full rounded"
@@ -107,7 +107,7 @@ const AboutUs = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="zoom-in-up">
                         <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
                             <img
                                 className="absolute object-cover w-full h-full rounded"

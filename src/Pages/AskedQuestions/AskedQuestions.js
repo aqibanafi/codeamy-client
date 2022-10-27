@@ -5,7 +5,7 @@ const AskedQuestions = () => {
         <div className='container mx-auto'>
             <h1 className='text-5xl font-bold text-amber-500 text-center mt-12 mb-20'>Frequently Asked Questions</h1>
             <div class="space-y-4 mb-20">
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" open>
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up" open>
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         Do I need to subscribe?
@@ -29,13 +29,13 @@ const AskedQuestions = () => {
                         </span>
                     </summary>
 
-                    <p class="mt-4 leading-relaxed text-gray-700">
+                    <p class="mt-4 leading-relaxed text-gray-700" data-aos="fade-up">
                     Yes. Subscription costs just $1.00 per month and for that you'll get access to all the quizzes on our India, UK and USA sites - that's over 5,000 quizzes in all!
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
-                    <summary class="flex cursor-pointer items-center justify-between">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
+                    <summary class="flex cursor-pointer items-center justify-between" data-aos="fade-up">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I print a quiz?
                         </h2>
@@ -63,7 +63,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I print a quiz?
@@ -92,7 +92,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         Are the quizzes copyrighted?
@@ -121,7 +121,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I find quizzes on a particular subject?
@@ -150,7 +150,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I select a quiz to play?
@@ -179,7 +179,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I find your terms and conditions and your privacy policy?
@@ -208,7 +208,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I report an error?
@@ -237,7 +237,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         What do Education Quizzes do when an error has been reported?
@@ -266,7 +266,7 @@ const AskedQuestions = () => {
                     </p>
                 </details>
 
-                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6">
+                <details class="group border-l-4 border-amber-500 bg-gray-50 p-6" data-aos="fade-up">
                     <summary class="flex cursor-pointer items-center justify-between">
                         <h2 class="text-lg font-medium text-gray-900">
                         How do I contact Education Quizzes?

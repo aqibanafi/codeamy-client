@@ -15,7 +15,7 @@ const LeftSideCourse = () => {
                 name.map(courseName =>
                     <div>
                         <ul className='flex items-center gap-10 border p-3 mb-2 bg-slate-200 hover:bg-amber-600 hover:text-white'>
-                            <Link to={`/course/${courseName._id}`}><li className='font-medium text-lg'>{courseName.title}</li></Link>
+                            <Link to={`/course/${courseName._id}`} data-aos="zoom-out"><li className='font-medium text-lg'>{courseName.title}</li></Link>
                         </ul>
                     </div>)
             }

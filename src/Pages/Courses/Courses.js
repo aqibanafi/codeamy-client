@@ -115,7 +115,9 @@ const Courses = () => {
             </div>
             <div className='flex justify-center mt-12 mb-20'>
                 <Link to={`/premium-access/${_id}`}>
-                    <button onClick={handleAccessCourse} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-amber-600 text-white hover:bg-amber-800">Get Premium Access</button>
+                    
+                <button onClick={handleAccessCourse} type="button" className="px-32 py-5 font-semibold rounded bg-amber-500 text-white hover:bg-amber-600">Get Premium Access</button>
+                    
                 </Link>
             </div>
         </div>

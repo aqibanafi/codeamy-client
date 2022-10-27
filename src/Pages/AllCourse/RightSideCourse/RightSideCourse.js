@@ -2,11 +2,11 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const RightSideCourse = ({course}) => {
+const RightSideCourse = ({ course }) => {
     const { _id, title, image, detail, rating, price, enrolled } = course;
     return (
-        <div>
-            <div className="card w-96 bg-base-100 shadow-xl h-[550px]">
+        <div data-aos="zoom-out-left">
+            <div className="card w-96 bg-base-100 shadow-xl h-[570px]">
                 <div>
                     <figure className="px-10 pt-10">
                         <img src={image} alt="Shoes" className="rounded-xl bg-cover max-h-44" />
@@ -31,9 +31,9 @@ const RightSideCourse = ({course}) => {
                     <div>
                         <p>Price: $ <span className='text-xl font-bold'>{price}</span></p>
                     </div>
-                    <div className="card-actions">
+                    <div className="card-actions mt-2">
                         <Link to={`/premium-access/${_id}`}>
-                            <button className="btn bg-amber-600 text-white hover:bg-amber-800">Buy Now</button>
+                            <button type="button" className="px-20 py-3 font-semibold rounded bg-amber-500 text-white hover:bg-amber-600">Show Detail</button>
                         </Link>
                     </div>
                 </div>

@@ -6,7 +6,8 @@ const BlogMain = () => {
         <div className='mt-12 mb-20'>
             <h1 className='text-5xl font-bold text-center text-amber-500 mb-20'>Latest Blogs</h1>
             <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 text-white'>
-                <article className="flex flex-col bg-amber-600">
+                <article className="flex flex-col bg-amber-600" data-aos="fade-up"
+        data-aos-duration="3000">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                         <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/5BbgpCR/What-is-CORS.webp" />
                     </Link>
@@ -24,7 +25,8 @@ const BlogMain = () => {
                     </div>
                 </article>
 
-                <article className="flex flex-col bg-amber-600">
+                <article className="flex flex-col bg-amber-600" data-aos="fade-up"
+        data-aos-duration="3000">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                         <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/3sTXscT/1-Jb-Do7-U0l62v-YMfm1-Wxn-A1g.png" />
                     </Link>
@@ -42,7 +44,8 @@ const BlogMain = () => {
                     </div>
                 </article>
 
-                <article className="flex flex-col bg-amber-600">
+                <article className="flex flex-col bg-amber-600" data-aos="fade-up"
+        data-aos-duration="3000">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                         <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/YXMjtrz/maxresdefault.jpg" />
                     </Link>
@@ -60,7 +63,8 @@ const BlogMain = () => {
                     </div>
                 </article>
 
-                <article className="flex flex-col bg-amber-600">
+                <article className="flex flex-col bg-amber-600" data-aos="fade-up"
+        data-aos-duration="2000">
                     <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                         <img alt="" className="object-cover w-full h-80 dark:bg-gray-500" src="https://i.ibb.co/pd4yhCP/nodejs-use-cases-cover-image.png" />
                     </Link>
