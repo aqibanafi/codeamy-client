@@ -54,7 +54,7 @@ const Courses = () => {
                         </div>
                     </div>
                     <div>
-                        <Pdf targetRef={ref} filename="course-outline.pdf" options={options} x={.5} y={.5} scale={0.8}>
+                        <Pdf targetRef={ref} filename={`Codeamy: ${title}.pdf`} options={options} x={.5} y={.5} scale={0.8}>
                             {({ toPdf }) => <button onClick={toPdf} type="button" className="flex items-center text-xl gap-5 px-20 py-3 font-bold rounded dark:bg-gray-100 dark:text-gray-800">
                                 <FaFilePdf className='text-3xl'></FaFilePdf>
                                 Download PDF

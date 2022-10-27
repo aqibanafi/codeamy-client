@@ -1,39 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
-const UserProfile = () => {
-    const { user, profileUpdate, setLoading } = useContext(AuthContext);
-    const [name, setName] = useState(user?.displayName);
-    const [email, setEmail] = useState(user?.email);
-    const [photoURL, setPhotoURL] = useState(user?.photoURL)
-
-    const getName = event => {
-        setName(event.target.value)
-    }
-
-    const getEmail = event => {
-        setEmail(event.target.value)
-    }
-
-    const getPhoto = event => {
-        setPhotoURL(event.target.value)
-    }
-    const handleProfileUpdate = () => {
-        const profile = {
-            displayName: name,
-            photoURL: photoURL
-        }
-        profileUpdate(profile)
-        .then(() => {
-        })
-        setLoading(false)
-        .catch(error => {
-            console.error(error)
-        })
-    }
+const ProfileTooltop = () => {
+    const { user, profileUpdate, setLoading } = useContext(AuthContext)
     return (
-        <div className='flex flex-wrap justify-center lg:grid-cols-2 mt-20 mb-20 gap-20'>
+        <div>
             <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-slate-200 text-black">
                 <div>
                     <img src={user?.photoURL} alt="" className="w-80 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
@@ -67,63 +39,8 @@ const UserProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className='bg-slate-200 rounded-xl p-5'>
-                <form className="mt-8 space-y-6 p-10" action="#" method="POST">
-                    <h2 className='text-2xl text-amber-500 font-bold'>Update Profile</h2>
-                    <input type="hidden" name="remember" defaultValue="true" />
-                    <div className="-space-y-px rounded-md shadow-sm">
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">
-                                Full Name
-                            </label>
-                            <input
-                                name={user?.displayName}
-                                onBlur={getName}
-                                type="text"
-                                autoComplete="name"
-                                required
-                                defaultValue={user?.displayName}
-                                className="mb-5 relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                               
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">
-                                
-                            </label>
-                            <input
-                                name={user?.email}
-                                onBlur={getEmail}
-                                type="email"
-                                autoComplete="email"
-                                required
-                                defaultValue={user?.email}
-                                readOnly
-                                className="mb-5 relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                               
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="email-address" className="sr-only">
-                                Photo URL
-                            </label>
-                            <input
-                                name={user?.photoURL}
-                                onBlur={getPhoto}
-                                type="text"
-                                autoComplete="photo"
-                                className="mb-5 relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                               defaultValue={user?.photoURL}
-                            />
-                        </div>
-                        <div>
-                            <button onClick={handleProfileUpdate} type="button" className="px-20 py-3 font-semibold rounded bg-amber-500 text-white hover:bg-amber-600 mt-5">Update Profile</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
     );
 };
 
-export default UserProfile;
+export default ProfileTooltop;

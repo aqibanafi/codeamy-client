@@ -4,9 +4,9 @@ import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import ReactTooltip from "react-tooltip";
-import UserProfile from '../../UserProfile/UserProfile';
 import Logo from '../../../logo.png'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import ProfileTooltop from '../../ProfileTooltip/ProfileTooltop';
 
 
 const Header = () => {
@@ -94,14 +94,14 @@ const Header = () => {
                                 user?.uid ?
                                     <>
                                         <div className='flex items-center gap-5'>
-                                            <span className='text-white font-bold text-xl hidden lg:block'>Hello, {user?.displayName}</span>
+                                            <span className='text-white font-bold text-xl hidden lg:block'>Welcome, {user?.displayName}</span>
                                             <Link to="/profile">
                                                 {user?.photoURL ?
                                                     <div>
                                                         <Link to='/profile' data-tip data-for="registerTip"><img className='h-10 w-10 rounded-full' src={user?.photoURL}></img></Link>
 
                                                         <ReactTooltip id="registerTip" place="top" effect="solid">
-                                                            <UserProfile></UserProfile>
+                                                            <ProfileTooltop></ProfileTooltop>
                                                         </ReactTooltip>
                                                     </div>
                                                     :

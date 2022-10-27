@@ -27,6 +27,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 form.reset();
+                toast.success("Successfully Logged in!")
                 setError('');
                 if (user.emailVerified) {
                     navigate(from, { replace: true });
@@ -51,7 +52,7 @@ const Login = () => {
 
     const handleResetPassword = () => {
         resetPassword(email)
-            .then(() => { 
+            .then(() => {
                 toast.success("Password Reset Link Sent!")
             })
             .catch(error => {
@@ -68,6 +69,7 @@ const Login = () => {
             .then(result => {
                 toast.success("Successfully Logged in!")
                 const user = result.user;
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error)
@@ -189,16 +191,14 @@ const Login = () => {
                             <div>
                                 <p className='text-red-600'>{error}</p>
                             </div>
-                            <div>
-                                <button
-                                    type="submit"
-                                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-amber-600 py-2 text-white font-bold hover:bg-amber-800"
-                                >
-                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                    </span>
-                                    Log in
-                                </button>
-                            </div>
+                            <button
+                                type="submit"
+                                className="group relative flex w-full justify-center rounded-md border border-transparent bg-amber-600 py-2 text-white font-bold hover:bg-amber-800"
+                            >
+                                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                </span>
+                                Log in
+                            </button>
                         </form>
                     </div>
                 </div>

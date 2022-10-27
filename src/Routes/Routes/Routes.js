@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/courses-categories'),
+                loader: () => fetch('https://codeamy-server-side.vercel.app/courses-categories'),
                 element: <Home></Home>
             },
             {
@@ -49,17 +49,17 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/courses-categories/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`),
+                loader: ({params}) => fetch(`https://codeamy-server-side.vercel.app/category/${params.id}`),
                 element: <Category></Category>
             },
             {
                 path: '/course/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+                loader: ({params}) => fetch(`https://codeamy-server-side.vercel.app/course/${params.id}`),
                 element: <Courses></Courses>
             },
             {
                 path: '/premium-access/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+                loader: ({params}) => fetch(`https://codeamy-server-side.vercel.app/course/${params.id}`),
                 element: <PrivateRoutes><PremiumAccessForm></PremiumAccessForm></PrivateRoutes>
             },
             {
@@ -85,7 +85,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <AllCourse></AllCourse>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://codeamy-server-side.vercel.app/courses')
             },
             {
                 path: '/profile',
@@ -96,7 +96,7 @@ export const routes = createBrowserRouter([
                 element: <ErrorPage></ErrorPage>
             },
             {
-                path:'termsnconditions',
+                path:'/termsnconditions',
                 element: <ConditionPage></ConditionPage>
             },
             {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LeftSideCourse = () => {
     const [name, setName] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://codeamy-server-side.vercel.app/courses')
             .then(res => res.json())
             .then(course => setName(course))
     }, [])

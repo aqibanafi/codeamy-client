@@ -43,7 +43,7 @@ const PremiumAccessForm = () => {
                     </div>
 
                     <div className="flex flex-col xl:flex-row justify-center xl:justify-between space-y-6 xl:space-y-0 xl:space-x-6 w-full">
-                        <div className="max-w-lg p-8 h-3/6 shadow-md bg-stone-300 dark:text-gray-100">
+                        <div className="max-w-lg p-8 h-3/6 shadow-xl dark:text-gray-100">
                             <div className="space-y-4">
                                 <div className="space-y-2">
                                     <Link to={`/premium-access/${_id}`}>
@@ -69,7 +69,7 @@ const PremiumAccessForm = () => {
                         </div>
 
                         <div className="p-8 bg-gray-100 flex flex-col lg:w-full xl:w-3/5">
-                            <button className="border border-transparent hover:border-gray-300 bg-amber-700 hover:bg-white text-white hover:text-gray-900 flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
+                            <button className="border border-transparent hover:border-gray-300 bg-amber-500 hover:bg-white text-white hover:text-gray-900 flex flex-row justify-center items-center space-x-2 py-4 rounded w-full">
                                 <div>
                                     <FaGooglePay className='h-10 w-10'></FaGooglePay>
                                 </div>
@@ -123,7 +123,7 @@ const PremiumAccessForm = () => {
                                 <input className="border rounded-bl rounded-br border-gray-300 p-4 w-full text-base leading-4 placeholder-gray-600 text-gray-600" type="text" placeholder="ZIP" />
                             </div>
 
-                            <button onClick={handlePayCourse} className="mt-8 border border-transparent hover:border-gray-300 bg-amber-700 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
+                            <button onClick={handlePayCourse} className="mt-8 border border-transparent hover:border-gray-300 bg-amber-500 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
                                 <div>
                                     <p className="text-base leading-4">Pay $ {price}</p>
                                 </div>

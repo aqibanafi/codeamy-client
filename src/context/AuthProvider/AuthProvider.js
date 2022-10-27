@@ -29,6 +29,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const updateUserProfile = profile => {
+        setLoading(true)
         return updateProfile(auth.currentUser, profile);
     }
 
@@ -43,6 +44,10 @@ const AuthProvider = ({ children }) => {
 
     const resetPassword = email => {
         return sendPasswordResetEmail(auth, email);
+    }
+
+    const profileUpdate = profile => {
+        return updateProfile(auth.currentUser, profile)
     }
 
     useEffect(() => {
@@ -60,7 +65,7 @@ const AuthProvider = ({ children }) => {
 
     }, [])
 
-    const authInfo = { user, loading, setLoading, googleProviderLogin, githubProviderLogin, createUser, resetPassword, signIn, updateUserProfile, verifyEmail, logOut };
+    const authInfo = { user, loading, setLoading, googleProviderLogin, githubProviderLogin, profileUpdate, createUser, resetPassword, signIn, updateUserProfile, verifyEmail, logOut };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
