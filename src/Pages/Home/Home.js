@@ -40,7 +40,7 @@ const Home = () => {
                                         aria-label=""
                                         className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
                                     >
-                                        <button className="btn btn-warning px-20 text-white hover:bg-amber-800">Login</button>
+                                        <button type="button" className="px-20 py-3 font-semibold rounded bg-amber-500 text-white hover:bg-amber-600">Sign in</button>
                                     </Link>
                                 </div>
                                 <div className="w-full max-w-xl xl:px-8 xl:w-5/12">

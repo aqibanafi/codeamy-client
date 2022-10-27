@@ -1,10 +1,10 @@
 # Codeamy
 
-A simple React App build with React & React Router [Live Website](https://quiz-sage.netlify.app/).
+A simple React App build with React & React Router [Live Website](https://codeamy-ed832.web.app/).
 
 ## Live Link
 
-Hosted By Netlify -> [Codeamy](https://quiz-sage.netlify.app/)
+Hosted By Firebase -> [Codeamy](https://codeamy-ed832.web.app/)
 
 # Website Overview
 

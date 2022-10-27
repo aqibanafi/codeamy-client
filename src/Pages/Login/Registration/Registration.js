@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
@@ -12,6 +12,7 @@ const Registration = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
     const { createUser, updateUserProfile, verifyEmail, googleProviderLogin, githubProviderLogin } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -27,9 +28,11 @@ const Registration = () => {
                 console.log(user);
                 setError('');
                 form.reset();
+                navigate('/login')
                 handleUpdateUserProfile(name, photoURL);
                 handleEmailVerification();
                 toast.success('Verification sent! Please verify your email address')
+                toast.success("Successfully Created Account!")
             })
             .catch(error => {
                 console.error(error);

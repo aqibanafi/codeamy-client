@@ -31,6 +31,7 @@ const Login = () => {
                 setError('');
                 if (user.emailVerified) {
                     navigate(from, { replace: true });
+                    return;
                 }
                 else {
                     toast.error('Your Email is not Verified! Please Verify Your Email Before Login')

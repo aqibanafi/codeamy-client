@@ -3,6 +3,17 @@ import Lottie from "lottie-react";
 import reader from '../../asset/83124-talk.json'
 
 const LetsTalk = () => {
+
+    const handletalk = () => {
+        const Swal = require('sweetalert2')
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Confirm Request',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    }
     return (
         <div className='mb-20'>
             <div className="grid max-w-screen-xl grid-cols-1 gap-12 px-8 py-16 mx-auto rounded-lg items-center md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-orange-100 text-black">
@@ -15,7 +26,7 @@ const LetsTalk = () => {
                         <Lottie animationData={reader} loop={true}></Lottie>
                     </div>
                 </div>
-                <form novalidate="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form className="space-y-6">
                     <div>
                         <label for="name" className="text-sm">Full name</label>
                         <input id="name" type="text" placeholder="" className="w-full p-3 rounded bg-slate-100" />
@@ -28,7 +39,7 @@ const LetsTalk = () => {
                         <label for="message" className="text-sm">Message</label>
                         <textarea id="message" rows="3" className="w-full p-3 rounded bg-slate-1000"></textarea>
                     </div>
-                    <button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-amber-600 text-white hover:bg-amber-800">Send Message</button>
+                    <button onClick={handletalk} type="button" className="px-12 py-3 font-semibold rounded bg-amber-500 text-white hover:bg-amber-600">Send Message</button>
                 </form>
             </div>
         </div>

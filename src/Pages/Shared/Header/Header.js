@@ -137,7 +137,7 @@ const Header = () => {
                         className='mt-5 hidden lg:block'
                         checked={isDarkMode}
                         onChange={toggleDarkMode}
-                        size={50}
+                        size={30}
                     />
                     <div class="lg:hidden z-10">
                         <button

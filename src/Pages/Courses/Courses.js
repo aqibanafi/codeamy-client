@@ -2,7 +2,6 @@ import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaVideo, FaFilePdf, FaBook, FaCertificate, FaCalendarTimes, FaLanguage, FaCheck, FaCheckSquare } from 'react-icons/fa';
 import Pdf from "react-to-pdf";
-import Swal from 'sweetalert2'
 
 const ref = createRef()
 const options = {
@@ -115,9 +114,7 @@ const Courses = () => {
             </div>
             <div className='flex justify-center mt-12 mb-20'>
                 <Link to={`/premium-access/${_id}`}>
-                    
                 <button onClick={handleAccessCourse} type="button" className="px-32 py-5 font-semibold rounded bg-amber-500 text-white hover:bg-amber-600">Get Premium Access</button>
-                    
                 </Link>
             </div>
         </div>

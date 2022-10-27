@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -8,7 +9,7 @@ const UserProfile = () => {
     const [email, setEmail] = useState(user?.email);
     const [photoURL, setPhotoURL] = useState(user?.photoURL)
 
-    const getName = event => {
+    const handleGetName = event => {
         setName(event.target.value)
     }
 
@@ -16,16 +17,19 @@ const UserProfile = () => {
         setEmail(event.target.value)
     }
 
-    const getPhoto = event => {
+    const handleGetPhoto = event => {
         setPhotoURL(event.target.value)
     }
-    const handleProfileUpdate = () => {
+    const handleProfileUpdate = event => {
+        event.preventDefault()
         const profile = {
             displayName: name,
             photoURL: photoURL
         }
         profileUpdate(profile)
         .then(() => {
+            setLoading(false)
+            toast.success("Profile Updated!")
         })
         setLoading(false)
         .catch(error => {
@@ -78,7 +82,7 @@ const UserProfile = () => {
                             </label>
                             <input
                                 name={user?.displayName}
-                                onBlur={getName}
+                                onBlur={handleGetName}
                                 type="text"
                                 autoComplete="name"
                                 required
@@ -109,7 +113,7 @@ const UserProfile = () => {
                             </label>
                             <input
                                 name={user?.photoURL}
-                                onBlur={getPhoto}
+                                onBlur={handleGetPhoto}
                                 type="text"
                                 autoComplete="photo"
                                 className="mb-5 relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
