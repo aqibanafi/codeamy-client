@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import ReactTooltip from "react-tooltip";
 import UserProfile from '../../UserProfile/UserProfile';
 import Logo from '../../../logo.png'
-import DarkModeToggle from "react-dark-mode-toggle";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 
 const Header = () => {
@@ -14,8 +14,11 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    console.log(isDarkMode)
+    const [isDarkMode, setDarkMode] = React.useState(false);
+
+    const toggleDarkMode = (checked: boolean) => {
+        setDarkMode(checked);
+    };
 
     const handleLogOut = () => {
         logOut()
@@ -91,7 +94,7 @@ const Header = () => {
                                 user?.uid ?
                                     <>
                                         <div className='flex items-center gap-5'>
-                                            <span className='text-white font-bold text-xl'>Hello, {user?.displayName}</span>
+                                            <span className='text-white font-bold text-xl hidden lg:block'>Hello, {user?.displayName}</span>
                                             <Link to="/profile">
                                                 {user?.photoURL ?
                                                     <div>
@@ -117,10 +120,11 @@ const Header = () => {
                             }
                         </div>
                     </>
-                    <DarkModeToggle
-                        className='hidden lg:block'
-                        onChange={setIsDarkMode}
+                    <DarkModeSwitch
+                        style={{ marginBottom: '2rem' }}
+                        className='mt-5 hidden lg:block'
                         checked={isDarkMode}
+                        onChange={toggleDarkMode}
                         size={50}
                     />
                     <div class="lg:hidden z-10">
@@ -229,7 +233,7 @@ const Header = () => {
                                                 >
                                                     Sign in
                                                 </Link>
-                                                
+
                                             </li>
                                             <li>
                                                 <Link
@@ -240,10 +244,10 @@ const Header = () => {
                                                 >
                                                     Sign up
                                                 </Link>
-                                                
+
                                             </li>
                                             <li>
-                                                
+
                                             </li>
                                         </ul>
                                     </nav>
